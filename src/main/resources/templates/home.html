@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>HOME</div>
+        <form action="#" th:action="@{/}" th:object="${nota}" method="post">
+            <p>Titolo : <input type="text" th:field="*{titolo}"  /> </p>
+            <p>contenuto : <input type="text" th:field="*{contenuto}" />  </p>
+            <p> <input  type="submit" value="inseririsci"/></p>
+           
+        
+        </form>
+        <ul th:each="nota : ${listanote}">
+            <li>
+                <b th:text="${nota.titolo}"></b> 
+            
+              <p th:text="${nota.contenuto}"></p>
+               <p>
+                <a href="#" th:href="@{|/edit/${nota.id}|}"> modifica</a>
+                <a href="#" th:href="@{|/delete/${nota.id}|}"> elimina</a>
+                
+            </p>
+            </li> 
+        </ul>
+          
+    </body>
+</html>
