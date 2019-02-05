@@ -31,7 +31,7 @@ public class WebNotesController {
     public  ModelAndView Home()
     {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("Home");
+        mav.setViewName("home");
         List<Nota> listanote = notaService.getAll();
         mav.addObject("listanote",listanote);
          mav.addObject("nota",new Nota());
@@ -42,7 +42,7 @@ public class WebNotesController {
     {
         ModelAndView mav = new ModelAndView();
         notaService.saveNota(nota);
-        mav.setViewName("Home");
+        mav.setViewName("home");
         List<Nota> listanote = notaService.getAll();
         mav.addObject("listanote",listanote);
         return mav;
@@ -53,7 +53,7 @@ public class WebNotesController {
         ModelAndView mav = new ModelAndView();
        // notaService.findById(notaId
         mav.addObject("nota",notaService.findById(notaId));
-        mav.setViewName("Edit_nota");
+        mav.setViewName("edit_nota");
         return mav;
     }
     
